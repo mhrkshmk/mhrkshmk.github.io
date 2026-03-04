@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Portfolio — Your Name</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Your Name</h1>
+        <p>Web developer &amp; designer</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <p>Short bio or summary goes here.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <article>
+                <h3>Project Title</h3>
+                <p>Brief description of the project.</p>
+                <a href="#">View project</a>
+            </article>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Your Name</p>
+    </footer>
+
+    <script>
+        // small enhancement: reveal focus styles only after keyboard navigation
+        function handleFirstTab(e) {
+            if (e.key === 'Tab') {
+                document.documentElement.classList.add('user-is-tabbing');
+                window.removeEventListener('keydown', handleFirstTab);
+            }
+        }
+        window.addEventListener('keydown', handleFirstTab);
+    </script>
+</body>
+</html>
