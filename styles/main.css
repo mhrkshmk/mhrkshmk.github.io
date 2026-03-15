@@ -1,0 +1,105 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-weight: 300;
+}
+
+body,
+body *:not(.name):not(.name *) {
+    font-family: "Sora", sans-serif;
+}
+
+:focus {
+    outline: none;
+}
+
+.user-is-tabbing :focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+.name {
+    font-family: 'Playfair Display', serif;
+}
+
+.name,
+.name * {
+    font-family: 'Playfair Display', serif;
+}
+
+.ripple-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background: #50C87860;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.reveal-section {
+  opacity: 0;
+  transform: translateY(42px);
+  transition: opacity 700ms ease, transform 700ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-section,
+  .reveal-section.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.typing-cursor {
+  display: inline-block;
+  margin-left: 0.15em;
+  color: #50C878;
+  animation: typing-blink 1s steps(1, end) infinite;
+}
+
+@keyframes typing-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.exp-desc-item {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 520ms ease, transform 520ms ease;
+  transition-delay: calc(var(--item-index, 0) * 80ms);
+}
+
+.exp-desc-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exp-desc-item,
+  .exp-desc-item.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
