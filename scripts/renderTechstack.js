@@ -40,7 +40,7 @@ export default function renderTechstack() {
                     ${tech.name}
                 </p>
                 <p class="text-xs font-extralight">
-                    ${proficiencyContext}
+                    ${tech.mastery.level} • ${tech.mastery.context}
                 </p>
             </div>
         `;
