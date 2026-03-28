@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Mehrkish</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
         <link rel="icon" type="image/png" href="./assets/icons/favicon/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon/favicon.svg" />
         <link rel="shortcut icon" href="./assets/icons/favicon/favicon.ico" />
@@ -72,15 +73,15 @@
                             Contact Me
                         </button>
                         <div class="absolute top-0 left-0 flex max-w-0 overflow-hidden opacity-0 transition-all duration-[600ms] group-hover:max-w-[160px] group-hover:opacity-100">
-                            <button class="flex items-center justify-center w-10 h-10 bg-[#E5E7EB] text-[#181a1D] text-sm rounded-l-md hover:bg-[#A8B6B2]">
+                            <a href="https://github.com/mhrkshmk" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-10 h-10 bg-[#E5E7EB] text-[#181a1D] text-sm rounded-l-md hover:bg-[#A8B6B2]">
                                 <img src="./assets/icons/github.svg" alt="Github" class="w-5 h-5">
-                            </button>
-                            <button class="flex items-center justify-center w-10 h-10 bg-[#E5E7EB] text-[#181a1D] text-sm hover:bg-[#A8B6B2]">
+                            </a>
+                            <a href="https://www.linkedin.com/in/mehrkish-makouei/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-10 h-10 bg-[#E5E7EB] text-[#181a1D] text-sm hover:bg-[#A8B6B2]">
                                 <img src="./assets/icons/linkedin.svg" alt="LinkedIn" class="w-5 h-5">
-                            </button>
-                            <button class="flex items-center justify-center w-10 h-10 bg-[#E5E7EB] text-[#181a1D] text-sm hover:bg-[#A8B6B2]">
+                            </a>
+                            <a href="mailto:MakoueiMehrkish@gmail.com" class="flex items-center justify-center w-10 h-10 bg-[#E5E7EB] text-[#181a1D] text-sm hover:bg-[#A8B6B2]">
                                 <img src="./assets/icons/mail.svg" alt="Mail" class="w-5 h-5">
-                            </button>
+                            </a>
                             <button class="flex items-center justify-center w-10 h-10 bg-[#E5E7EB] text-[#181a1D] text-sm rounded-r-md hover:bg-[#A8B6B2]">
                                 <img src="./assets/icons/resume.svg" alt="Resume" class="w-5 h-5">
                             </button>
@@ -109,10 +110,6 @@
                         </div>
                     </div>
                 </div>
-                <div>
-                    <p>
-                    </p>
-                </div>
             </section>
             <section id="experience" class="reveal-section min-h-screen w-full px-6 pt-20">
                 <div class="mx-auto w-full max-w-5xl">
@@ -120,8 +117,8 @@
                         Experience
                     </h2>
                     <div class="main-header-line mb-[1rem] h-[1px] w-full bg-gradient-to-r from-white/40 via-white/10 to-transparent mb-[2.5rem]" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); transform-origin: 0% 50%;"></div>
-                    <div class="flex flex-row">
-                        <div class="flex flex-col" id="experience-tabs">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="flex flex-row md:flex-col pb-[8px] md:pb-0" id="experience-tabs">
                         </div>
                         <div id="experience-panels">
                         </div>
@@ -180,11 +177,11 @@
                         <div class="flex w-full lg:w-3/5 border border-[#E5E7EB] p-8 rounded-xl">
                             <form class="flex flex-col gap-3 w-full my-auto">
                                 <div class="flex gap-3 w-full">
-                                    <input class="px-4 py-3 w-1/2 rounded-xl text-sm bg-transparent border border-[#E5E7EB] placeholder-[#A8B6B2] text-[#E5E7EB]" required type="text" placeholder="Your Name" />
-                                    <input class="px-4 py-3 w-1/2 rounded-xl text-sm bg-transparent border border-[#E5E7EB] placeholder-[#A8B6B2] text-[#E5E7EB]" required type="text" placeholder="Your Email" />
+                                    <input class="px-4 py-3 w-1/2 rounded-xl text-sm bg-transparent border border-[#E5E7EB] placeholder-[#A8B6B2] text-[#E5E7EB]" required type="text" name="from_name" placeholder="Your Name" />
+                                    <input class="px-4 py-3 w-1/2 rounded-xl text-sm bg-transparent border border-[#E5E7EB] placeholder-[#A8B6B2] text-[#E5E7EB]" required type="email" name="from_email" placeholder="Your Email" />
                                 </div>
-                                <input class="px-4 py-3 rounded-xl text-sm bg-transparent border border-[#E5E7EB] placeholder-[#A8B6B2] text-[#E5E7EB]" required type="text" placeholder="Subject" />
-                                <textarea class="px-4 py-3 rounded-xl text-sm bg-transparent border border-[#E5E7EB] placeholder-[#A8B6B2] text-[#E5E7EB]" required rows="4" placeholder="Your Message"></textarea>
+                                <input class="px-4 py-3 rounded-xl text-sm bg-transparent border border-[#E5E7EB] placeholder-[#A8B6B2] text-[#E5E7EB]" required type="text" name="subject" placeholder="Subject" />
+                                <textarea class="px-4 py-3 rounded-xl text-sm bg-transparent border border-[#E5E7EB] placeholder-[#A8B6B2] text-[#E5E7EB]" required rows="4" name="message" placeholder="Your Message"></textarea>
                                 <button class="border px-4 py-3 rounded-xl text-md bg-transparent border border-[#E5E7EB] text-[#E5E7EB]" type="submit">
                                     Submit
                                 </button>
@@ -193,7 +190,7 @@
                         <div class="flex flex-col gap-8 py-4 w-full lg:w-2/5">
                             <h3 class="text-xl">Get in touch</h3>
                             <div class="flex flex-col gap-4">
-                                <div class="flex items-start justify-start gap-[1rem] my-auto h-[5rem] p-4 rounded-lg hover:border hover:border-[#E5E7EB].  ">
+                                <div class="flex items-start justify-start gap-[1rem] my-auto h-[5rem] p-4 rounded-lg hover:border hover:border-[#E5E7EB]">
                                     <div class="rounded-lg my-auto">
                                         <img src="./assets/icons/email2.svg" alt="An Email Icon" />
                                     </div>
@@ -208,14 +205,14 @@
                                 </div>
                                 <div class="flex items-start justify-start gap-[1rem] my-auto h-[5rem] p-4 rounded-lg hover:border hover:border-[#E5E7EB]">
                                     <div class="rounded-lg my-auto">
-                                        <img src="./assets/icons/location.svg" alt="An Email Icon" />
+                                        <img src="./assets/icons/location.svg" alt="Location Icon" />
                                     </div>
                                     <div class="my-auto">
                                         <p class="h-full my-auto text-left text-md font-medium">
                                             Location
                                         </p>
                                         <p class="text-xs font-extralight">
-                                            MakoueiMehrkish@gmail.com
+                                            Vancouver, BC
                                         </p>
                                     </div>
                                 </div>
@@ -223,19 +220,17 @@
                             <div class="flex flex-col gap-4">
                                 <h3 class="text-xl">Socials</h3>
                                 <div class="flex gap-2">
-                                    <img class="h-10 w-10 p-2 rounded-full cursor-pointer hover:border hover:border-[#E5E7EB]" src="./assets/icons/github3.svg" alt="Github Logo">
-                                    <img class="h-10 w-10 p-2 rounded-full cursor-pointer hover:border hover:border-[#E5E7EB]" src="./assets/icons/linkedin2.svg" alt="Github Logo">
-                                    <img class="h-10 w-10 p-2 rounded-full cursor-pointer hover:border hover:border-[#E5E7EB]" src="./assets/icons/codeforces.svg" alt="Github Logo">
-                                    <img class="h-10 w-10 p-2 rounded-full cursor-pointer hover:border hover:border-[#E5E7EB]" src="./assets/icons/leetcode.svg" alt="Github Logo">
-                                    <img class="h-10 w-10 p-2 rounded-full cursor-pointer hover:border hover:border-[#E5E7EB]" src="./assets/icons/github2.svg" alt="Github Logo">
-                                    <img class="h-10 w-10 p-2 rounded-full cursor-pointer hover:border hover:border-[#E5E7EB]" src="./assets/icons/github2.svg" alt="Github Logo">
+                                    <a href="https://github.com/mhrkshmk" target="_blank" rel="noopener noreferrer"><img class="h-10 w-10 p-2 rounded-full cursor-pointer hover:border hover:border-[#E5E7EB]" src="./assets/icons/github3.svg" alt="Github Logo"></a>
+                                    <a href="https://www.linkedin.com/in/mehrkish-makouei/" target="_blank" rel="noopener noreferrer"><img class="h-10 w-10 p-2 rounded-full cursor-pointer hover:border hover:border-[#E5E7EB]" src="./assets/icons/linkedin2.svg" alt="Linkedin Logo"></a>
+                                    <a href="https://codeforces.com/profile/Gaunt" target="_blank" rel="noopener noreferrer"><img class="h-10 w-10 p-2 rounded-full cursor-pointer hover:border hover:border-[#E5E7EB]" src="./assets/icons/codeforces.svg" alt="codeforces Logo"></a>
+                                    <a href="https://leetcode.com/u/mhrkshmk/" target="_blank" rel="noopener noreferrer"><img class="h-10 w-10 p-2 rounded-full cursor-pointer hover:border hover:border-[#E5E7EB]" src="./assets/icons/leetcode.svg" alt="leetcode Logo"></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section id="contact" class="reveal-section w-full px-6 pt-24 pb-12 flex flex-col justify-center items-center text-xs gap-1.5">
+            <section class="reveal-section w-full px-6 pt-24 pb-12 flex flex-col justify-center items-center text-xs gap-1.5">
                 <p>Built and designed by Mehrkish Makouei.</p>
                 <p>All rights reserved. ©</p>
             </section>

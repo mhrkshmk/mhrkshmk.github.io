@@ -3,6 +3,7 @@ import renderWorkExperience from "./renderWorkExperience.js";
 import renderPetProjects from "./renderPetProjects.js";
 import renderTechstack, { initTechstackFilters } from "./renderTechstack.js";
 import { initHeroTyping, initSectionReveal, initRippleEffect } from "./uiEffects.js";
+import { initContactForm } from "./contact.js";
 
 const portraitCanvas = document.getElementById("particle-portrait");
 
@@ -21,3 +22,4 @@ if (portraitCanvas) {
 initHeroTyping();
 initSectionReveal();
 initRippleEffect();
+initContactForm();

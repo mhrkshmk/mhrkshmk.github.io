@@ -2,6 +2,7 @@ import workExperience from "../data/workExperience.js";
 
 const tabsContainer = document.getElementById("experience-tabs");
 const panelsContainer = document.getElementById("experience-panels");
+const isMobile = () => window.matchMedia("(max-width: 768px)").matches;
 
 export default function renderWorkExperience() {
     if (!tabsContainer || !panelsContainer) return;
@@ -12,32 +13,42 @@ export default function renderWorkExperience() {
     tabsContainer.classList.add("relative");
 
     const indicator = document.createElement("span");
-    indicator.className = "absolute right-0 top-0 block w-[2px] bg-[#50C878]";
+    indicator.className = "absolute block bg-[#50C878]";
     tabsContainer.appendChild(indicator);
 
     const panelsByKey = {};
+    let activeTab = null;
 
     function moveIndicatorToTab(tab, animate = true) {
         if (!tab) return;
-
         if (animate) {
             indicator.classList.add("transition-all", "duration-500");
         } else {
             indicator.classList.remove("transition-all", "duration-500");
         }
-
-        indicator.style.top = `${tab.offsetTop}px`;
-        indicator.style.height = `${tab.offsetHeight}px`;
+        if (isMobile()) {
+            indicator.style.left = `${tab.offsetLeft}px`;
+            indicator.style.width = `${tab.offsetWidth}px`;
+            indicator.style.bottom = "0";
+            indicator.style.top = "auto";
+            indicator.style.right = "auto";
+            indicator.style.height = "2px";
+        } else {
+            indicator.style.top = `${tab.offsetTop}px`;
+            indicator.style.height = `${tab.offsetHeight}px`;
+            indicator.style.right = "0";
+            indicator.style.bottom = "auto";
+            indicator.style.left = "auto";
+            indicator.style.width = "2px";
+        }
         indicator.style.transform = "none";
     }
 
     function animatePanelDescription(panel) {
         const items = panel.querySelectorAll(".exp-desc-item");
-
         items.forEach((item) => {
             item.classList.remove("is-visible");
         });
-
         requestAnimationFrame(() => {
             items.forEach((item) => {
                 item.classList.add("is-visible");
@@ -49,13 +60,13 @@ export default function renderWorkExperience() {
         const key = job.name.toLowerCase();
 
         const tab = document.createElement("button");
-        tab.className = "ripple-btn w-[160px] h-[48px] text-left px-[20px] py-[6px] text-[#A8B6B2] font-extralight";
+        tab.className = "ripple-btn w-auto md:w-[160px] h-[48px] text-left px-[20px] py-[6px] text-[#A8B6B2] font-extralight whitespace-nowrap";
         tab.textContent = job.name;
         tab.dataset.tab = key;
 
         const panel = document.createElement("div");
         panel.dataset.panel = key;
-        panel.className = `flex flex-col gap-[1.5rem] p-[1.5rem] pt-0 ml-[1.5rem] ${index === 0 ? "block" : "hidden"}`;
+        panel.className = `flex flex-col gap-[1.5rem] p-[1.5rem] pt-0 mt-[1.5rem] md:mt-0 md:ml-[1.5rem] ${index === 0 ? "block" : "hidden"}`;
         panel.innerHTML = `
             <div class="flex flex-col gap-[0.25rem] text-[#E5E7EB]">
                 <h3 class="text-[1.5rem] font-semibold">${job.role} @ <span class="text-[#50C878]">${job.name}</span></h3>
@@ -88,6 +99,7 @@ export default function renderWorkExperience() {
             panel.classList.remove("hidden");
             panel.classList.add("block");
 
+            activeTab = tab;
             animatePanelDescription(panel);
             moveIndicatorToTab(tab, true);
         });
@@ -98,6 +110,7 @@ export default function renderWorkExperience() {
 
     const firstTab = tabsContainer.querySelector("button[data-tab]");
     if (firstTab) {
+        activeTab = firstTab;
         firstTab.classList.remove("text-[#A8B6B2]");
         firstTab.classList.add("text-[#50C878]");
 
@@ -120,4 +133,8 @@ export default function renderWorkExperience() {
             document.fonts.ready.then(() => moveIndicatorToTab(firstTab, false));
         }
     }
+
+    window.addEventListener("resize", () => {
+        if (activeTab) moveIndicatorToTab(activeTab, false);
+    });
 }
